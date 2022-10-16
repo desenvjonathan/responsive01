@@ -1,0 +1,112 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+ul {
+  list-style: none;
+}
+
+/* 
+REM = Root EM (unidade de medida relativa, ou seja, não é fixa como o pixel)
+1rem = 16px (por padrão caso a pessoa não tenha ido nos settings e mudado para outro tamanho)
+*/
+:root {
+  font-size: 62.5%; /* para os 16px padrão, equivaler a 10px */
+}
+
+body {
+  font-family: 'Epilogue', sans-serif;
+  background: #ECE9FD;
+  padding: 6.0rem 2.3rem 6.6rem; /* equivale a 60px 23px e 66px */
+  font-size: 1.6rem; /* equivale a 16px */
+}
+
+main {
+  max-width: 33.0rem;
+  margin: 0 auto;
+}
+
+main p:first-child { /* ou seja, para pegar apenas o primeiro p encontrado no main*/
+  color: #7158EF;
+  letter-spacing: 3px; /* quando for coisas muito pequenas (menos de 4px), deixar em pixels */
+  text-transform: uppercase; /* colocar todo o texto em caixa alta */
+  line-height: 3.2rem; /* equivale a 32px */
+  margin-bottom: 1.7rem; /* equivale a 17px */
+}
+
+h1 {
+  font-weight: 800;
+  font-size: 4.0rem; /* equivale a 40px */
+  line-height: 4.8rem; /* equivale a 48px */
+  color: #090039;
+  margin-bottom: 1.5rem; /* equivale a 15px */
+}
+
+h1 + p { /* vai buscar o p que está depois do h1 */
+  color: rgba(10, 0, 57, 0.64);
+  line-height: 3.2rem; /* equivale a 32px */
+  margin-bottom: 3.2rem; /* equivale a 32px */
+}
+
+a {
+  color: #090039;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #7158EF;
+}
+
+ul {
+  margin-top: 7.2rem; /* equivale a 72px */
+}
+
+ul li {
+  font-weight: 700;
+  font-size: 2.4rem;
+  line-height: 3.2rem; 
+  color: #090039;
+  max-width: 25.7rem;
+  display: flex;
+  gap: 3.8rem;
+}
+
+ul li + li { /* colocar uma margin-top APENAS aos li que tenham um li anterior, ou seja, do número 2 (pagamentos) e 3 (suporte) */
+  margin-top: 3.2rem;
+}
+
+ul li span {
+  font-weight: 800;
+  font-size: 7.2rem;
+  line-height: 8.0rem;
+  letter-spacing: -2px; /* quando for coisas muito pequenas (menos de 4px), deixar em pixels */
+  color: #090039;
+  min-width: 4.5rem;
+}
+
+/* media queries */
+/* com a largura de 43.75em para cima, eu quero adicionar a cor preta ao body */
+/* ele funciona para aplicarmos essa regra quando o width passar de 500px, ou seja, para fazermos um site responsivo que sirva tanto para desktop, quanto mobile */
+@media (min-width: 43.75em) { /* equivale a 700px */
+  body {
+    padding: 8rem;
+  }
+  
+  main {
+    max-width: 1020px; /* nesse caso poderá deixar fixo em pixel, pois só está dizendo o tamanho máximo que poderá atingir e depois disso, não cresce mais */
+    display: flex;
+    gap: 10rem;
+  }
+
+  main > div {
+    max-width: 484px;
+  }
+
+  ul li {
+    gap: 5.3rem;
+    max-width: 450px;
+    align-items: center;
+  }
+}
